@@ -1,0 +1,7 @@
+{
+    "modules": [{
+        "id": "clippy",
+        "location": "clippy",
+        "path": "dist"
+    }]
+}
