@@ -1,0 +1,13 @@
+{
+    "config": {
+        "document-actions": [{
+            "key": "resync-node",
+            "title": "Resync Node",
+            "iconClass": "fa fa-repeat",
+            "module": "app/actions/document/resync-node",
+            "allowPermission": [
+                "update"
+            ]
+        }]
+    }
+}
