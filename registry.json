@@ -1,6 +1,6 @@
 {
     "modules": [{
-        "id": "resync",
+        "id": "resync-action",
         "location": "resync-action",
         "path": "/"
     }]
