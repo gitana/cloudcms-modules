@@ -32,9 +32,11 @@ define(function(require, exports, module) {
             var nodeIds = [document._doc];
             OneTeam.pleaseWait("Resyncing...");
             
-            Chain(branch).chainPost(this, branch.getUri() + "/publishing/resync", {}, {"state": state, "nodeIds": nodeIds}).then(function () {
-                OneTeam.pleaseWaitDone();
-                callback();
+            Chain(branch).then(function() {
+                this.chainPost(this, branch.getUri() + "/publishing/resync", {}, {"state": state, "nodeIds": nodeIds}).then(function () {
+                    OneTeam.pleaseWaitDone();
+                    callback();
+                });
             });
         }
 
