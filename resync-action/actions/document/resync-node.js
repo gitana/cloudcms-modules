@@ -31,7 +31,8 @@ define(function(require, exports, module) {
             var state = "live";
             var nodeIds = [document._doc];
             OneTeam.pleaseWait("Resyncing...");
-            Chain(branch).chainPost(branch.getUri() + "/publishing/resync", {}, {"state": state, "nodeIds": nodeIds}).then(function () {
+            
+            Chain(branch).chainPost(this, branch.getUri() + "/publishing/resync", {}, {"state": state, "nodeIds": nodeIds}).then(function () {
                 OneTeam.pleaseWaitDone();
                 callback();
             });
