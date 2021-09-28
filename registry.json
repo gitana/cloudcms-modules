@@ -1,7 +1,7 @@
 {
     "modules": [{
-        "id": "clippy",
-        "location": "clippy",
-        "path": "dist"
+        "id": "resync",
+        "location": "resync-action",
+        "path": "/"
     }]
 }
