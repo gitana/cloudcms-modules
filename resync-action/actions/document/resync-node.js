@@ -33,8 +33,17 @@ define(function(require, exports, module) {
             OneTeam.pleaseWait("Resyncing...");
             
             Chain(branch).then(function() {
-                this.chainPost(this, branch.getUri() + "/publishing/resync", {}, {"state": state, "nodeIds": nodeIds}).then(function () {
+                var body = {
+                    "state": state,
+                    "nodeIds": nodeIds,
+                    "config": {
+                        "contentIncludeRelators": false
+                    }
+                };
+
+                this.chainPost(this, branch.getUri() + "/publishing/resync", {}, body).then(function () {
                     OneTeam.pleaseWaitDone();
+                    OneTeam.showMessage("Started", "Started resync, job id: " + this._doc);
                     callback();
                 });
             });
