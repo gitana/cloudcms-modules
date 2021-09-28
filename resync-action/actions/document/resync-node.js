@@ -23,7 +23,7 @@ define(function(require, exports, module) {
             var self = this;
             var ratchet = actionContext.ratchet;
 
-            var project = actionContext.observable("project").get();
+            var branch = actionContext.observable("branch").get();
             var document = actionContext.observable("document").get();
             actionContext.listOfAttachmentIds = [];
 
@@ -31,7 +31,7 @@ define(function(require, exports, module) {
             var state = "live";
             var nodeIds = [document._doc];
             OneTeam.pleaseWait("Resyncing...");
-            Chain(document).getDriver().gitanaPost(document.getUri() + "/publishing/resync", {}, {"state": state, "nodeIds": nodeIds}).then(function () {
+            Chain(branch).getDriver().chainPost(branch.getUri() + "/publishing/resync", {}, {"state": state, "nodeIds": nodeIds}).then(function () {
                 OneTeam.pleaseWaitDone();
                 callback();
             });
